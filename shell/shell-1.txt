@@ -1,0 +1,12 @@
+spark-shell --master spark://node250:7077
+
+scala> val rdd= sc.parallelize(Array("hello","spark","hello","zhangvalue"))
+rdd: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[11] at parallelize at <console>:24
+ 
+scala> val pairs = rdd.map(s=>(s,1))
+pairs: org.apache.spark.rdd.RDD[(String, Int)] = MapPartitionsRDD[12] at map at <console>:25
+ 
+scala> val count = pairs.reduceByKey((a,b) => a+b)
+count: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[13] at reduceByKey at <console>:25
+ 
+scala> count.count()

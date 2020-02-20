@@ -1,0 +1,5 @@
+http://192.168.0.250:8088/cluster, application
+http://192.168.0.250:50070/dfshealth.html, hdfs, datanode
+http://192.168.0.250:8079, spark UI
+spark://node250:7077, spark master
+http://192.168.0.250:18080/, spark job history
